@@ -14,6 +14,10 @@ class fttb_area(models.Model):
     def __unicode__(self):
         return '%s %s'%(self.area, self.ip_range)
 
+    class Meta:
+        verbose_name_plural = (u"1. FTTB 區域範圍")
+
+
 class fttb_iplist(models.Model):
     area = models.ForeignKey(fttb_area, verbose_name = u"區域")
     ip = models.IPAddressField()
@@ -38,5 +42,8 @@ class fttb_iplist(models.Model):
    
     def __unicode__(self):
         return '%s'%(self.ip)
+
+    class Meta:
+        verbose_name_plural = (u"2. FTTB IP 列表")
 
 
