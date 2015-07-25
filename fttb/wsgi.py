@@ -19,8 +19,8 @@ from dj_static import Cling
 application = Cling(get_wsgi_application())
 
 import django.core.handlers.wsgi
-_application = django.core.handlers.wsgi.WSGIHandler(
-)
+_application = django.core.handlers.wsgi.WSGIHandler()
+
 def application(environ, start_response):
     content = "您訪問的網站不存在"
     remote_addr = environ.get('REMOTE_ADDR')
