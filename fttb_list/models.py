@@ -28,7 +28,7 @@ class fttb_iplist(models.Model):
     apply_type = models.CharField(max_length=25, verbose_name = u'申請型態', default = '', blank = True)
     attach_phone = models.CharField(max_length=15, verbose_name = u'附掛電話', default = '', blank = True)
     cellphone = models.CharField(max_length=12, verbose_name = u'手機', default = '', blank = True)
-    phone_2 = models.CharField(max_length=15, verbose_name = u'聯絡電話2', default = '', blank = True)
+    phone_2 = models.CharField(max_length=18, verbose_name = u'聯絡電話2', default = '', blank = True)
     addr = models.CharField(max_length=50, verbose_name = u'裝機地址', default = '', blank = True)
     rate = models.CharField(max_length=15, verbose_name = u'速率', default = '', blank = True)
     apply_date = models.DateField(blank=True, verbose_name=u"申請日期", null=True)
