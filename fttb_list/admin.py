@@ -26,7 +26,7 @@ class fttb_iplistAdmin(SimpleHistoryAdmin):
     #change_form_template = 'admin/fttp_iplist/extras/fttb_iplist_change_form.html'
     list_display = ('id', 'ip', 'applicant', 'customer', 'ID_no', 'attach_phone', 'cellphone', 'phone_2', 'rate', 'apply_date', 'email', 'addr', 'circuit_no', 'note')
     list_filter = ['area']
-    search_fields = ('ip','applicant', 'customer', 'attach_phone',)
+    search_fields = ('ip','applicant', 'customer', 'attach_phone', 'ID_no')
     actions = [make_clear]
 
     def get_ordering(self, request):
