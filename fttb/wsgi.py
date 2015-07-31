@@ -13,15 +13,13 @@ from django.conf import settings
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "fttb.settings")
 
 from django.core.wsgi import get_wsgi_application
-#application = get_wsgi_application()
-
-#from dj_static import Cling
-#application = Cling(get_wsgi_application())
-
-
+application = get_wsgi_application()
 
 import django.core.handlers.wsgi
 _application = django.core.handlers.wsgi.WSGIHandler()
+
+from dj_static import Cling
+application = Cling(get_wsgi_application())
 
 def application(environ, start_response):
     content = "您訪問的網站不存在"
@@ -32,6 +30,4 @@ def application(environ, start_response):
     return _application(environ, start_response)
 
 
-from dj_static import Cling
-application = Cling(get_wsgi_application())
 
