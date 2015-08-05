@@ -19,7 +19,7 @@ import django.core.handlers.wsgi
 _application = django.core.handlers.wsgi.WSGIHandler()
 
 from dj_static import Cling
-application = Cling(get_wsgi_application())
+#application = Cling(get_wsgi_application())
 
 def application(environ, start_response):
     content = "您訪問的網站不存在"
@@ -29,5 +29,4 @@ def application(environ, start_response):
         return [content]
     return _application(environ, start_response)
 
-
-
+application = Cling(get_wsgi_application())
