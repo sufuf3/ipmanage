@@ -24,10 +24,20 @@ make_clear.short_description = "Mark selected IP as clear"
 #class fttb_iplistAdmin(admin.ModelAdmin):
 class fttb_iplistAdmin(SimpleHistoryAdmin):
     #change_form_template = 'admin/fttp_iplist/extras/fttb_iplist_change_form.html'
-    list_display = ('id', 'ip', 'applicant', 'customer', 'ID_no', 'attach_phone', 'cellphone', 'phone_2', 'rate', 'apply_date', 'email', 'addr', 'circuit_no', 'note')
+    list_display = ('id', 'ip', 'applicant', 'customer', 'ID_no', 'attach_phone', 'cellphone', 'phone_2', 'rate', 'apply_date', 'email', 'addr', 'circuit_no', 'note', 'get_mask', 'get_gateway')
+    list_display_links = ['id','ip']
     list_filter = ['area']
     search_fields = ('ip','applicant', 'customer', 'attach_phone', 'ID_no')
     actions = [make_clear]
+
+    def get_mask(self, obj):
+        return obj.area.subnet_mask
+    get_mask.short_description='子網路遮罩'
+
+    def get_gateway(self, obj):
+        return obj.area.gateway
+    get_gateway.short_description='預設閘道'
+
 
     def get_ordering(self, request):
         return ['id']
