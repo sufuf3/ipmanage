@@ -8,8 +8,8 @@ sys.setdefaultencoding('utf-8')
 class fttb_area(models.Model):
     area = models.CharField(max_length=10, default = '', verbose_name=u"區域")
     ip_range = models.CharField(max_length = 35, default = '', verbose_name = u"IP Range")
-    subnet_mask = models.IPAddressField(verbose_name=u"Subnet Mask")
-    gateway = models.IPAddressField(verbose_name = u"Gateway")
+    subnet_mask = models.GenericIPAddressField(verbose_name=u"Subnet Mask")
+    gateway = models.GenericIPAddressField(verbose_name = u"Gateway")
     dns = models.CharField(max_length = 35, default = '', verbose_name = u"DNS", blank=True)
     def __unicode__(self):
         return '%s %s'%(self.area, self.ip_range)
@@ -20,7 +20,7 @@ class fttb_area(models.Model):
 
 class fttb_iplist(models.Model):
     area = models.ForeignKey(fttb_area, verbose_name = u"區域")
-    ip = models.IPAddressField()
+    ip = models.GenericIPAddressField()
     applicant = models.CharField(max_length=30, verbose_name = u'申請人', default = '', blank = True)
     customer = models.CharField(max_length=30, verbose_name = u'客戶名稱', default = '', blank = True)
     ID_no = models.CharField(max_length=15, verbose_name = u'教職員編號/學號', default = '', blank = True)
