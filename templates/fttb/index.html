@@ -1,0 +1,14 @@
+{% load staticfiles %}
+{% load url from future %}
+
+
+
+<form action="" method="post">
+ip 搜尋:{{ form.ip_search }}{% csrf_token %}&nbsp; &nbsp; &nbsp;
+        <input type="submit" value=搜尋 >
+    </form>
+    <br>
+{{show_ip.0.0}}<br>
+{{show_ip.0.1}}<br>
+
+
